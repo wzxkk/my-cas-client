@@ -1,1 +1,5 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration = org.wzx.mycasclient.config.WebInterceptor
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.wzx.mycasclient.config.MyConfig,\
+org.wzx.mycasclient.controller.CookieUtil,\
+org.wzx.mycasclient.util.SystemInit,\
+org.wzx.mycasclient.config.MyConstant
