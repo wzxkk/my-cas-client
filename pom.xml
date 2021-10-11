@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.5</version>
+        <version>2.3.10.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.wzx</groupId>
     <artifactId>my-cas-client</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>my-cas-client</name>
-    <description>Demo project for Spring Boot</description>
+    <description>sso client</description>
     <properties>
         <java.version>11</java.version>
     </properties>
