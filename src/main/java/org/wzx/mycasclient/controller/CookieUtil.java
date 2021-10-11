@@ -8,16 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
-@RestController
 @Slf4j
+@RestController
 public class CookieUtil {
 
     @GetMapping("/setCookie/{name}/{value}")
-    public void src(HttpServletResponse response, @PathVariable("name") String name, @PathVariable("value") String value) {
+    public void setCookie(HttpServletResponse response, @PathVariable("name") String name, @PathVariable("value") String value) {
+        log.debug("设置了cookie:" + name + "=" + value);
         Cookie cookie = new Cookie(name, value);
-        cookie.setMaxAge(3600);
         cookie.setPath("/");
         response.addCookie(cookie);
-        log.debug("one设置了cookie");
     }
 }
