@@ -31,21 +31,23 @@ import java.util.Map;
 @Slf4j
 @Component
 public class SystemInit implements ApplicationRunner {
+    @Autowired
+    private MyConstant myConstant;
 
     @Override
     public void run(ApplicationArguments args) {
         log.debug("权限客户端初始化。。。");
-        log.debug("认证中心url:" + MyConstant.MY_CAS_SERVER_URL);
-        log.debug("本客户端协议:" + MyConstant.PROTOCO);
-        log.debug("客户端开放路径:" + MyConstant.PERMIT_URLS);
+        log.debug("认证中心url:" + myConstant.MY_CAS_SERVER_URL);
+        log.debug("本客户端协议:" + myConstant.PROTOCO);
+        log.debug("客户端开放路径:" + myConstant.PERMIT_URLS);
         new Thread(() -> {
             Map<String, Object> param = new HashMap<>();
-            param.put("protocol", MyConstant.PROTOCO);
-            param.put("hostname", MyConstant.CLIENT_HOST);
-            param.put("port", MyConstant.CLIENT_PORT);
+            param.put("protocol", myConstant.PROTOCO);
+            param.put("hostname", myConstant.CLIENT_HOST);
+            param.put("port", myConstant.CLIENT_PORT);
             param.put("state", "RUN");
-            log.debug(HttpUtil.post(MyConstant.MY_CAS_SERVER_URL + "/public/clientRegister", param));
+            log.debug(HttpUtil.post(myConstant.MY_CAS_SERVER_URL + "/public/clientRegister", param));
         }).start();
-        log.debug("权限客户端完毕。。。");
+        log.debug("权限客户端初始化完毕。。。");
     }
 }
